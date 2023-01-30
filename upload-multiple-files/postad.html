@@ -123,38 +123,6 @@
 
 
 
- {% comment %} <label for="category">Choose a CATEGORY:</label>
-                            <select id="category" name="category">
-                                {% for category in categories %}
-                                <option value="{{category}}">{{category}}</option>
-                                {% endfor %}   
-                            </select><br><br> 
-                            
-
-                            <label for="subcategory">Choose a subCATEGORY:</label>
-                            <select id="subcategory" name="subcategory" >
-                                {% for subcategory in subcategories %}
-                                <option value="{{subcategory}}">{{subcategory}}</option>
-                                {% endfor %}   
-                            </select><br><br> 
-
-
-                            <label for="state">Choose a STATE:</label>
-                            <select id="state" name="state" >
-                                {% for state in states %}
-                                <option value="{{state}}">{{state}}</option>
-                                {% endfor %}   
-                            </select><br><br> 
-
-
-                            <label for="city">Choose a CITY:</label>
-                            <select id="city" name="city" >
-                                {% for city in cities %}
-                                <option value="{{city}}">{{city}}</option>
-                                {% endfor %}   
-                            </select><br><br>  {% endcomment %}
-
-
 
 <script src="{% static "js/selection.js" %}"></script> 
 
