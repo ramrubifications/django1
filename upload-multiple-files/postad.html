@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% include "includes/header.html" with active_page="index" %}
+
+<style>
+
+    
+
+
+
+</style>
+
+
+<div class="container-fluid">
+    <div class="">
+        <div class="rounded d-flex justify-content-center">
+            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
+                <div class="text-center">
+                    <h3 class="text-primary">POST AD</h3>
+                </div>
+                <div class="p-4">
+                    <form action="{% url 'postad' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            
+                            <label>ad title</label> {{ adform.ad_title }}
+                        </div>
+                        <div class="input-group mb-3">
+                            
+                            <label>description</label> {{ adform.description }}
+                        </div>
+                        <div class="input-group mb-3">
+                            
+                            <label>price</label> {{ adform.price }}
+                        </div>
+                        
+                        <div class="input-group mb-3">             
+    
+                       <label>Select files</label>
+                         {{ adform.pictures }}   
+  
+  
+  
+
+                                                      
+                                
+                           
+                            
+                            
+                        </div> 
+
+                        <div class="input-group mb-3">
+                            
+                            <label>category</label> {{ catform.category_title }}
+                        </div> 
+
+                        <div class="input-group mb-3">
+                            
+                            <label id="subcat">subcategory</label> {{ subcatform.subcategory_title }}
+                        </div> 
+                        <div class="input-group mb-3">
+                            
+                            <label>state</label> {{ stateform.state_title }}
+                        </div> 
+                        <div class="input-group mb-3">
+                            
+                            <label id="city">city</label> {{ cityform.city_title }}
+                        </div> 
+
+                      
+
+
+                        
+
+                        
+                        
+                        
+                        <ul class="errorlist">
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <li style="color:red;"> {{error}} </li>
+                                    {% endfor %}                                                
+                                {% endif %}
+                            {% endfor %}
+
+                            <li style="color:red;"> {{form.non_field_errors}} </li>
+
+                        </ul>
+
+                        <div class="d-grid col-12 mx-auto">
+                            <button class="btn btn-primary" type="submit"><span></span>POST THE AD</button>
+                        </div>
+                        
+                        <div class="d-grid col-12 mx-auto">
+                            {% include 'includes/alerts.html' %}
+                        </div>
+
+
+                        <p id="test2">This is another paragraph.</p>
+
+
+
+
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+ {% comment %} <label for="category">Choose a CATEGORY:</label>
+                            <select id="category" name="category">
+                                {% for category in categories %}
+                                <option value="{{category}}">{{category}}</option>
+                                {% endfor %}   
+                            </select><br><br> 
+                            
+
+                            <label for="subcategory">Choose a subCATEGORY:</label>
+                            <select id="subcategory" name="subcategory" >
+                                {% for subcategory in subcategories %}
+                                <option value="{{subcategory}}">{{subcategory}}</option>
+                                {% endfor %}   
+                            </select><br><br> 
+
+
+                            <label for="state">Choose a STATE:</label>
+                            <select id="state" name="state" >
+                                {% for state in states %}
+                                <option value="{{state}}">{{state}}</option>
+                                {% endfor %}   
+                            </select><br><br> 
+
+
+                            <label for="city">Choose a CITY:</label>
+                            <select id="city" name="city" >
+                                {% for city in cities %}
+                                <option value="{{city}}">{{city}}</option>
+                                {% endfor %}   
+                            </select><br><br>  {% endcomment %}
+
+
+
+<script src="{% static "js/selection.js" %}"></script> 
+
+<script>
+
+
+</script>
+
+
+
+{% endblock %}
